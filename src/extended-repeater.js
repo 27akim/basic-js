@@ -8,7 +8,7 @@ module.exports = function repeater( str, options) {
   }
   if(options.additionSeparator === undefined)
   {
-    options.additionSeparator = '';
+    options.additionSeparator = '|';
   }
   if(options.repeatTimes === undefined)
   {
@@ -40,3 +40,7 @@ module.exports = function repeater( str, options) {
   }
   return resultStr;
 }
+
+const objWithSpecificCoercion = {
+  [Symbol.toPrimitive]: hint => hint !== 'number' ? 'STRING_OR_DEFAULT' : 'NUMBER'
+};
