@@ -2,23 +2,23 @@ const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater( str, options) {
   let resultStr = '';
-  if(options.separator == undefined)
+  if(options.separator === undefined)
   {
     options.separator = '+';
   }
-  if(options.additionSeparator == undefined)
+  if(options.additionSeparator === undefined)
   {
     options.additionSeparator = '';
   }
-  if(options.repeatTimes == undefined)
+  if(options.repeatTimes === undefined)
   {
     options.repeatTimes = 1;
   }
-  if(options.additionRepeatTimes == undefined)
+  if(options.additionRepeatTimes === undefined)
   {
     options.additionRepeatTimes = 1;
   }
-  if(options.addition == undefined)
+  if(options.addition === undefined)
   {
     options.addition = '';
   }
