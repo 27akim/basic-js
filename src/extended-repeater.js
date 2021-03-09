@@ -18,8 +18,10 @@ module.exports = function repeater( str, options) {
       resultStr = resultStr + options.addition + 
       options.additionSeparator;
     }
-    resultStr += options.separator;
+    if(i != options.repeatTimes - 1)
+    {
+      resultStr += options.separator;
+    }
   }
   return resultStr;
 }
-  
