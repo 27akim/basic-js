@@ -28,9 +28,9 @@ module.exports = function repeater( str, options) {
     for(let j = 0; j < options.additionRepeatTimes; j++)
     {
       resultStr = resultStr + options.addition;
-      if(i != options.additionRepeatTimes - 1)
+      if(j != options.additionRepeatTimes - 1)
       {
-        options.additionSeparator;
+        resultStr += options.additionSeparator;
       }
     }
     if(i != options.repeatTimes - 1)
