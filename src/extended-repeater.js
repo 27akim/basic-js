@@ -1,6 +1,6 @@
 const CustomError = require("../extensions/custom-error");
 
-/*module.exports =*/ function repeater( str, options) {
+module.exports = function repeater( str, options) {
   let resultStr = '';
   if(options.separator == undefined)
   {
@@ -40,6 +40,3 @@ const CustomError = require("../extensions/custom-error");
   }
   return resultStr;
 }
-
-console.log(repeater('la', { repeatTimes: 3, separator: 's', addition: '+', additionRepeatTimes: 1 }));
-  
