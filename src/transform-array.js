@@ -1,7 +1,8 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(arr) {
-  if(typeof arr != Array)
+  console.log(typeof arr[3]);
+  if(arr.length == 0)
   {
     throw new Error();
   }
@@ -10,7 +11,10 @@ module.exports = function transform(arr) {
     if(arr[i] == '--discard-next')
     {
       try{
-        arr.splice(i+1,1);
+        if(typeof arr[i+1] == 'number')
+        {
+          arr.splice(i+1,1);
+        }
       }
       catch(e)
       {
@@ -20,7 +24,10 @@ module.exports = function transform(arr) {
     if(arr[i] == '--discard-prev')
     {
       try{
-        arr.splice(i-1,1);
+        if(typeof arr[i-1] == 'number')
+        {
+          arr.splice(i-1,1);
+        }
       }
       catch(e)
       {
@@ -30,7 +37,10 @@ module.exports = function transform(arr) {
     if(arr[i] == '--double-next')
     {
       try{
-        arr[i] = arr[i+1];
+        if(typeof arr[i+1] == 'number')
+        {
+          arr[i] = arr[i+1];
+        }
       }
       catch(e)
       {
@@ -40,7 +50,10 @@ module.exports = function transform(arr) {
     if(arr[i] == '--double-prev')
     {
       try{
-        arr[i] = arr[i-1];
+        if(typeof arr[i-1] == 'number')
+        {
+          arr[i] = arr[i-1];
+        }
       }
       catch(e)
       {
@@ -48,5 +61,14 @@ module.exports = function transform(arr) {
       }
     }
   }
+  for(let i = 0; i < arr.length; i++)
+  {
+    if(typeof arr[i] == 'string')
+    {
+      arr.splice(i,1);
+      i--;
+    }
+  }
   return arr;
 };
+
