@@ -10,10 +10,10 @@ module.exports = function transform(arr) {
   }
   for(let i = 0; i < resultArr.length; i++)
   {
-    if(resultArr[i] == '--discard-next')
+    if(resultArr[i] === '--discard-next')
     {
       try{
-        if(typeof resultArr[i+1] == 'number')
+        if(typeof resultArr[i+1] !== undefined)
         {
           resultArr.splice(i+1,1);
         }
@@ -23,10 +23,10 @@ module.exports = function transform(arr) {
         continue;
       }
     }
-    if(resultArr[i] == '--discard-prev')
+    if(resultArr[i] === '--discard-prev')
     {
       try{
-        if(typeof resultArr[i-1] == 'number')
+        if(typeof resultArr[i-1] !== undefined)
         {
           resultArr.splice(i-1,1);
         }
@@ -36,10 +36,10 @@ module.exports = function transform(arr) {
         continue;
       }
     }
-    if(resultArr[i] == '--double-next')
+    if(resultArr[i] === '--double-next')
     {
       try{
-        if(typeof resultArr[i+1] == 'number')
+        if(typeof resultArr[i+1] !== undefined)
         {
           resultArr[i] = resultArr[i+1];
         }
@@ -49,10 +49,10 @@ module.exports = function transform(arr) {
         continue;
       }
     }
-    if(resultArr[i] == '--double-prev')
+    if(resultArr[i] === '--double-prev')
     {
       try{
-        if(typeof resultArr[i-1] == 'number')
+        if(typeof resultArr[i-1] !== undefined)
         {
           resultArr[i] = resultArr[i-1];
         }
