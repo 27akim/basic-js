@@ -1,19 +1,21 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(arr) {
+  let resultArr = [];
+  arr.forEach( item => resultArr.push(item));
   console.log(typeof arr[3]);
   if(!Array.isArray(arr))
   {
     throw new Error();
   }
-  for(let i = 0; i < arr.length; i++)
+  for(let i = 0; i < resultArr.length; i++)
   {
-    if(arr[i] == '--discard-next')
+    if(resultArr[i] == '--discard-next')
     {
       try{
-        if(typeof arr[i+1] == 'number')
+        if(typeof resultArr[i+1] == 'number')
         {
-          arr.splice(i+1,1);
+          resultArr.splice(i+1,1);
         }
       }
       catch(e)
@@ -21,12 +23,12 @@ module.exports = function transform(arr) {
         continue;
       }
     }
-    if(arr[i] == '--discard-prev')
+    if(resultArr[i] == '--discard-prev')
     {
       try{
-        if(typeof arr[i-1] == 'number')
+        if(typeof resultArr[i-1] == 'number')
         {
-          arr.splice(i-1,1);
+          resultArr.splice(i-1,1);
         }
       }
       catch(e)
@@ -34,12 +36,12 @@ module.exports = function transform(arr) {
         continue;
       }
     }
-    if(arr[i] == '--double-next')
+    if(resultArr[i] == '--double-next')
     {
       try{
-        if(typeof arr[i+1] == 'number')
+        if(typeof resultArr[i+1] == 'number')
         {
-          arr[i] = arr[i+1];
+          resultArr[i] = resultArr[i+1];
         }
       }
       catch(e)
@@ -47,12 +49,12 @@ module.exports = function transform(arr) {
         continue;
       }
     }
-    if(arr[i] == '--double-prev')
+    if(resultArr[i] == '--double-prev')
     {
       try{
-        if(typeof arr[i-1] == 'number')
+        if(typeof resultArr[i-1] == 'number')
         {
-          arr[i] = arr[i-1];
+          resultArr[i] = resultArr[i-1];
         }
       }
       catch(e)
@@ -61,14 +63,14 @@ module.exports = function transform(arr) {
       }
     }
   }
-  for(let i = 0; i < arr.length; i++)
+  for(let i = 0; i < resultArr.length; i++)
   {
-    if(typeof arr[i] == 'string')
+    if(typeof resultArr[i] == 'string')
     {
-      arr.splice(i,1);
+      resultArr.splice(i,1);
       i--;
     }
   }
-  return arr;
+  return resultArr;
 };
 
