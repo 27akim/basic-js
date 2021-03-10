@@ -9,15 +9,15 @@ const chainMaker = {
   addLink(value) {
     if(value === undefined)
     {
-      value = ' ';
+      value = '';
     }
     if(this.str.length == 0)
     {
-      this.str += `(${value})`;
+      this.str += `( ${value} )`;
     }
     else
     {
-      this.str += `~~(${value})`;
+      this.str += `~~( ${value} )`;
     }
     return this;
   },
