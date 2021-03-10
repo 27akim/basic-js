@@ -3,7 +3,7 @@ const CustomError = require("../extensions/custom-error");
 module.exports = function transform(arr) {
   let resultArr = arr.slice();
   console.log(typeof resultArr[3]);
-  if(resultArr.length == 0)
+  if(arr.length == 0)
   {
     throw new Error();
   }
