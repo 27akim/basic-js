@@ -26,6 +26,7 @@ const chainMaker = {
     position == '' ||
     this.str[position] === undefined)
     {
+      this.str = '';
       throw new Error();
     }
     position--;
