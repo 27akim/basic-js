@@ -22,7 +22,9 @@ const chainMaker = {
     return this;
   },
   removeLink(position) {
-    if(typeof(position) != Number || position > this.str.length-1 || n % 1 !== 0)
+    if(isNaN(+position) ||
+    position == '' ||
+    this.str[position] === undefined)
     {
       throw new Error();
     }
