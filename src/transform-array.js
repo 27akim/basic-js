@@ -3,10 +3,13 @@ const CustomError = require("../extensions/custom-error");
 module.exports = function transform(arr) {
   let resultArr = [];
   arr.forEach( item => resultArr.push(item));
-  console.log(typeof arr[3]);
   if(!Array.isArray(arr))
   {
     throw new Error();
+  }
+  if(arr.length === 0)
+  {
+    return [];
   }
   for(let i = 0; i < resultArr.length; i++)
   {
