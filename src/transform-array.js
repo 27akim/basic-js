@@ -2,7 +2,7 @@ const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(arr) {
   console.log(typeof arr[3]);
-  if(arr.length == 0)
+  if(!Array.isArray(arr))
   {
     throw new Error();
   }
