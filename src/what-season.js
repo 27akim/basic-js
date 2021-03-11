@@ -10,15 +10,15 @@ module.exports = function getSeason(date) {
     throw new Error();
   }
   let monthNumber = date.getMonth();
-  if(monthNumber > 2 && monthNumber < 6)
+  if(monthNumber > 2 && monthNumber < 5)
   {
     return 'spring';
   }
-  if(monthNumber > 5 && monthNumber < 9)
+  if(monthNumber > 4 && monthNumber < 8)
   {
     return 'summer';
   }
-  if(monthNumber > 8 && monthNumber < 12)
+  if(monthNumber > 7 && monthNumber < 11)
   {
     return 'autumn';
   }
