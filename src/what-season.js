@@ -19,8 +19,9 @@ module.exports = function getSeason(date) {
   if (7 < month && month <= 10) {
     return "autumn";
   }
-    else
-  {
-    return 'winter';
-  }
+  else if (month === 11 ||
+    month === 0 ||
+    month === 1) {
+    return "winter";
+  }  
 };
